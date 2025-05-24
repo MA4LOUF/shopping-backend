@@ -10,7 +10,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -43,16 +43,16 @@ public class User {
 
     @Column(name = "creation_date")
     @CreatedDate
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "last_modified")
     @LastModifiedDate
-    private Date lastModified;
+    private LocalDateTime lastModified;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public User(String firstName, String lastName, String email, String password, Date createdAt, Date lastModified, Role role) {
+    public User(String firstName, String lastName, String email, String password, LocalDateTime createdAt, LocalDateTime lastModified, Role role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
